@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+#err1, #err2, #err3 {
+	color: red;
+}
+</style>
+<script>
+	function validate() {
+		var res=false;
+		document.getElementById("err1").innerHTML = "";
+		document.getElementById("err2").innerHTML = "";
+		document.getElementById("err3").innerHTML = "";
+		var name = document.frm1.txtname.value;
+		var age = document.frm1.txtage.value;
+		var email = document.frm1.txtemail.value;
+		console.log(name, age, email);
+		var namepatt = /^[a-zA-Z]{3,15}$/;
+		var agepatt = /^[2-5][0-9]$/;
+		var emailpatt = /^[a-zA-Z0-9]+[@][a-z]+[.](com|co.in)$/;
+		if (!namepatt.test(name)) {
+			document.getElementById("err1").innerHTML = "NAME SHOULD CONTAIN MIN OF 3-15 CHARATERS";
+		}
+		if (!agepatt.test(age)) {
+			document.getElementById("err2").innerHTML = "AGE MUST BE BETWEEN 20 AND 59";
+		}
+		if (!emailpatt.test(email)) {
+			document.getElementById("err3").innerHTML = "INVALID EMAIL";
+		}
+		if (namepatt.test(name) && agepatt.test(age) && emailpatt.test(email))
+			res=true;		
+			
+			return res;
+	}
+</script>
+
+
+
+</head>
+<body>
+	<h1>Form Validation</h1>
+	<hr />
+	<!--
+	name- 3-15 chars
+	age- 2 digit no
+	email-> an text having @ and .com/.in
+	
+	  -->
+	<form name="frm1" onsubmit="return validate();">
+		<table cellpadding="10" bgcolor="#e3e3e3">
+			<tr>
+				<td>name</td>
+				<td><input type="text" id="txtname" name="txtname" /></td>
+				<td id="err1"></td>
+			</tr>
+			<tr>
+				<td>age</td>
+				<td><input type="text" id="txtage" name="txtage" /></td>
+				<td id="err2"></td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td><input type="text" id="txtemail" name="txtemail" /></td>
+				<td id="err3"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><input type="submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

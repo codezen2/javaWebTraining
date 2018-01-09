@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+#div1{
+  display: inline-block;
+  margin: 2px;  
+}
+</style>
+<script>
+  var tnarr=["chennai", "madurai", "trichy"];
+  var uparr = ["lucknow", "noida", "mathura"];
+  var hrarr=["gurgaon", "panipet", "ambala"];
+  function showCities(str)
+  {
+	  var res="City: ";
+	switch(str)
+	{
+	case "tn":res+=populateCombo(tnarr);
+		break;
+	case "hr":res+=populateCombo(hrarr);
+		break;
+	case "up":res+=populateCombo(uparr);
+		break;
+	default:
+		alert("select the state");
+	}
+	if(res!="")
+		{
+		document.getElementById("div1").innerHTML=res;
+		}
+  }
+  function populateCombo(arr)
+  {
+	  var res="<select>";
+	  res+="<option value=''>--select city--</option>";
+	  for(var idx=0;idx<arr.length;++idx){
+		  res+="<option value='"+arr[idx]+"'>"+arr[idx]+"</option>";
+		  }
+	  res+="</select>";
+	  return res;
+  }
+</script>
+</head>
+<body>
+<h1>States and its cities</h1>
+<hr/>
+state
+<select id="state" onchange="showCities(this.value)">
+   <option value="">--select state</option>
+   <option value="tn">tn</option>
+   <option value="up">up</option>
+   <option value="hr">haryana</option>
+</select>
+<div id="div1">
+</div>
+</body>
+</html>

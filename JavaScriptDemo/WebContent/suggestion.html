@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+#div1 {
+	width: 171px;
+	height: 200px;
+	border: 1px solid black;
+	display:none;
+}
+.city
+{
+text-align: center;
+padding: 10px;
+
+}
+.city:hover
+{
+opacity:70%;
+background-color:#e2e2e2;
+}
+ul {
+	list-style: none;
+}
+</style>
+<script>
+	var arr = [ "chennai", "calicut", "chandigarh", "badarpur", "bangalore",
+			"bhopal", "ambala", "allahabad", "amethi" ];
+function populate(str)
+{
+	document.getElementById("txt1").value = str;
+	document.getElementById("div1").style.display="none";
+/* 	alert("dsda");
+	confirm("sdasd");
+	console.log(prompt("dasdas")); */
+}
+	
+	function display(str) {
+		var res = "";
+		if (str.length > 0) {
+			for ( var i in arr) {
+				if (arr[i].substring(0, str.length) == str)
+					res += "<div class='city' onclick='populate(this.innerHTML)''>" + arr[i] + "</div>";
+			}
+			document.getElementById("div1").innerHTML = res;
+			document.getElementById("div1").style.display="block"
+		} else {
+			document.getElementById("div1").innerHTML = "";
+			document.getElementById("div1").style.display="none"
+			document.getElementById("txt1").value = "";
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>Suggestion Demo</h1>
+	<hr />
+	<div align="center">
+		<input type="text" id="txt1" onkeyup="display(this.value)" />
+		<div id="div1"></div>
+	</div>
+</body>
+</html>

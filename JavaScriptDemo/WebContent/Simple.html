@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function calcVolOfCyl() {
+		var r = document.getElementById("txtr").value;
+		var h = document.getElementById("txth").value;
+		var res = Math.PI * r * r * h;
+		document.getElementById("res").innerHTML = res.toFixed(2);
+		console.log("cly: "+res.toFixed(2));
+
+	}
+
+	function calcVolOfCone() {
+		var r = document.getElementById("txtr").value;
+		var h = document.getElementById("txth").value;
+		var res = 1 / 3 * Math.PI * r * r * h;
+		document.getElementById("res").innerHTML = res.toFixed(2);
+		console.log("cone: "+res.toFixed(2));
+
+	}
+	function clearField() {
+		var opt=confirm("Are you sure to clear the form?")
+		if(opt)
+			{
+			document.getElementById("txtr").value="";
+			document.getElementById("txth").value="";
+			document.getElementById("res").innerHTML="";
+			}
+	}
+</script>
+</head>
+<body>
+	<h1>Volume Of Shapes</h1>
+	<hr />
+	<table cellpadding="10" bgcolor="#e3e3e3" style="margin: 0 auto">
+		<tr>
+			<td>radius</td>
+			<td><input type="text" id="txtr" /></td>
+		</tr>
+		<tr>
+			<td>height</td>
+			<td><input type="text" id="txth" /></td>
+		</tr>
+
+		<tr>
+			<td>result</td>
+			<td id="res"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="cylinder"
+				onclick="calcVolOfCyl()" /></td>
+			<td><input type="button" value="cone" onclick="calcVolOfCone()" />
+				<input type="button" value="clear" onclick="clearField()"/></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

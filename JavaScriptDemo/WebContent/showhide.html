@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+#div1 {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+#div2 {
+	height: 200px;
+	width: 200px;
+	border-radius: 100px;
+	background: -webkit-radial-gradient(yellow, orange, red);
+	padding: 10px;
+	display: none; color : white;
+	text-align: center;
+	color: white;
+}
+</style>
+<script type="text/javascript">
+	function display(chk) {
+		var e1= document.getElementById("div2");
+		if (chk.checked) {
+			e1.style.display = "block";
+		} else {
+			e1.style.display = "none";
+		}
+	}
+</script>
+<script>
+	
+</script>
+
+</head>
+<body>
+	<h1>Show/Hide html</h1>
+	<hr />
+	<div id="div1">
+		<input type="checkbox" id="chk1" onclick="display(this)" />show/hide
+		Advertisement<br />
+		<div id="div2">
+			<h2>Peter England</h2>
+		</div>
+
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

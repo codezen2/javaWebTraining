@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script type="text/javascript">
+function displayBg(val)
+{
+	document.getElementById("div1").style.backgroundColor=val;
+}
+function displayFg(val)
+{
+	document.getElementById("div1").style.color=val;
+}
+
+</script>
+<style>
+#div1
+{
+height: 200px;
+width: 200px;
+border:3px solid red;
+margin:0 auto;
+}
+.divbada
+{
+width:200px;
+margin:0 auto; 
+}
+</style>
+<title>COLOR PICKER</title>
+</head>
+<body>
+<h1 align="center">Configure Colour</h1><hr/>
+<div class="divbada">
+	BG<input type="color" onchange="displayBg(this.value)"/>
+	FG<input type="color" onchange="displayFg(this.value)"/>
+</div>
+<div  id="div1">
+lorem ipsum loerm ispuem lorem ipsum loerm ispuem
+ lorem ipsum loerm ispuem lorem ipsum loerm ispuem
+  lorem ipsum loerm ispuem lorem ipsum loerm ispuem  
+  lorem ipsum loerm ispuem
+</div>
+</body>
+</html>
