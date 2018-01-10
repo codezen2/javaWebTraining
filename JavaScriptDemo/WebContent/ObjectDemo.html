@@ -4,31 +4,33 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
-    function Volume(r,h)
-    {
-    	this.rad=r;
-    	this.ht=h;
-    	this.findVolCyl()=function(){
-    		return Math.PI *this.ht*this.rad*this.rad;
-    	}
-    	this.findVolCone()=function(){
-    		return findVolCyl()*1/3.0;
-    	}
-    }
-    function calcVolume() {
-		var r=document.getElementById("txtr").value;
-		var h=document.getElementById("txth").value;
-		var r1=document.getElementById("r1");
-		var r2=document.getElementById("r2");
-		var res="";
-		var obj=new Volume(r,h);
-	if(r1.checked)
-	{
-		res=obj.findVolCone().tofixed(2);
-	}else if(r1.checked){
-		res=obj.findVolCyl().tofixed(2);
+
+	function Volume(r, h) {
+		this.rad = r;
+		this.ht = h;
+
+		this.findVolOfCyl = function()
+		{
+			return Math.PI * this.rad * this.rad * this.ht;
+		}
+
+		this.findVolOfCone = function()
+		{
+			return Math.PI * this.rad * this.rad * this.ht / 3.0;
+		}
 	}
-	document.getElementById("res").innerHTML=res;
+	function calcVolume() {
+		var r = document.getElementById("txtr").value;
+		var h = document.getElementById("txth").value;
+		var r1 = document.getElementById("r1");
+		var r2 = document.getElementById("r2");
+		var obj = new Volume(r, h);
+		var res = "";
+		if (r1.checked)
+			res = obj.findVolOfCyl().toFixed(2);
+		else if (r2.checked)
+			res = obj.findVolOfCone().toFixed(2);
+		document.getElementById("res").innerHTML = res;
 	}
 </script>
 </head>
@@ -42,20 +44,21 @@
 		</tr>
 		<tr>
 			<td>height</td>
-			<td><input type="text" id="txth"/></td>
+			<td><input type="text" id="txth" /></td>
 		</tr>
+
 		<tr>
-			<td>Select Option</td>
-			<td><input type="radio" name="shape" id="cyl" value="cyl"/>Cylinder
-			<input type="radio" name="shape" id="con"  value="con"/>Cone</td>
+			<td><input type="radio" value="cyl" id="r1" name="shape" />cylinder</td>
+			<td><input type="radio" value="cone" id="r2" name="shape" />cone</td>
 		</tr>
-		
+
 		<tr>
 			<td>result</td>
 			<td id="res"></td>
 		</tr>
 		<tr>
-			<td><input type="button" value="Find Volume" onclick="calcVolume()"/></td>
+			<td><input type="button" value="Find Volume"
+				onclick="calcVolume()" /></td>
 			<td></td>
 		</tr>
 	</table>
