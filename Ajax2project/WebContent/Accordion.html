@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.accordion{
+    width:100px;
+    padding:0px;
+}
+#title{
+  height:20px;
+  background-color: aqua;
+  padding:5px;
+}
+#data{
+   
+   padding: 5px;
+   background-color: #87cef1;
+   display:none;
+   
+}
+ul{
+  list-style: none;
+}
+.accordion a{
+ text-decoration: none;
+}
+</style>
+<script>
+var odd =true;
+function showData(){
+	var arr = ["acer", "hp", "sony"];
+	if(odd){
+		var html="";
+		for(var idx =0; idx <= arr.length; ++ idx){
+			html += "" + arr[idx] +"<br/>";
+			
+		}
+		html += "";
+		document.getElementById("data").innerHTML = html;
+		document.getElementById("data").style.display= "block";
+		odd=false;
+	}else{
+		odd=true;
+		document.getElementById("data").style.display= "none";
+		document.getElementById("data").style.display= "none";
+	}
+	
+}
+</script>
+</head>
+<body>
+<h1>Accordion</h1>
+<hr/>
+<div class="accordion" style="border:1px solid red">
+  <div id="title"><a href="#" onclick="showData()">Computer</a></div>
+  <div id="data"></div>
+</div>
+</body>
+</html>
