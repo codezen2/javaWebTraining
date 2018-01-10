@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+#div1 {
+	width: 140px;
+	height: 200px;
+	border: 1px solid red;
+}
+</style>
+<script>
+	function display(str) {
+		if (str.length > 0) {
+			var ajax = new XMLHttpRequest();
+			ajax.open('GET', 'AutoServer2.jsp?cityname=' + str, true);
+			ajax.send();
+			ajax.onreadystatechange = function() {
+			var data = "";
+			var html = " ";
+				if (ajax.readyState == 4 && ajax.status == 200) {
+					data = JSON.parse(ajax.responseText);
+					data=data.cities;
+					for (var i = 0; i < data.length; ++i) {
+						html += data[i].cname + '<br/>';
+					}
+
+					document.getElementById("div1").innerHTML = html;
+
+				}
+			}
+
+		} else {
+			document.getElementById("div1").innerHTML = "";
+		}
+
+	}
+</script>
+</head>
+<body>
+	<h1>Auto Suggestion Demo</h1>
+	<hr />
+	<div align="center">
+		<input type="text" id="txt1" onkeyup="display(this.value)" />
+		<div id="div1"></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

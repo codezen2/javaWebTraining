@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function updateScore() {
+		var ajax = new XMLHttpRequest();
+		ajax.open('GET', "Cricket.jsp", true);
+		ajax.send();
+//http://10.151.60.215:8082/JsonAjax/CricketScore.html 
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				var json = JSON.parse(ajax.responseText);
+				document.getElementById("ctry").innerHTML = json.cname;
+				document.getElementById("runs").innerHTML = json.cruns;
+			}
+
+		}
+	}
+	setInterval(updateScore, 2000);
+</script>
+<style type="text/css">
+td {
+	background: #467b61;
+	color: white;
+	text-transform: uppercase;
+}
+
+table {
+	border: 1px solid;
+	margin: 0 auto;
+	background: white;
+	border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+	<h1 align="center">Cricket Score</h1>
+	<table cellpadding="10" bgcolor="wheat" style="margin: 0 auto;">
+		<tr>
+			<th>Country</th>
+			<th>Runs</th>
+		</tr>
+		<tr>
+			<td id="ctry"></td>
+			<td id="runs"></td>
+		</tr>
+	</table>
+</body>
+</html>

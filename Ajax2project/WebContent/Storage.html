@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	var currIdx = 0;
+	function displayTable() {
+		var res = "";
+		if (localStorage.length > 0) {
+			for (var i = 0; i < localStorage.length; i++) {
+				var json = JSON.parse(localStorage.getItem("Employee:" + i));
+				res += "<tr><td>Employee: " + i + "</td><td>" + json.ename
+						+ "</td><td>" + json.esal + "</td><td>" + json.edept
+						+ "</td></tr>"
+			}
+			document.getElementById("t1").innerHTML = res;
+		}
+	}
+	function saveData() {
+
+		var name = document.getElementById("txtname").value;
+		var sal = document.getElementById("txtsal").value;
+		var dept = document.getElementById("txtdept").value;
+		var id = "Employee:" + currIdx;
+		var json = {
+			"ename" : name,
+			"esal" : sal,
+			"edept" : dept
+		};
+		var jstr = JSON.stringify(json);
+		if (currIdx < localStorage.length)
+			currIdx = localStorage.length;
+		else
+			currIdx++;
+		localStorage.setItem(id, jstr);
+		document.getElementById("err1").innerHTML = "Data Added for " + name
+				+ " with id:" + currIdx;
+		var elem = document.createElement('tr');
+		var inner = "<td>Employee:" + currIdx + "</td>" + "<td>" + name
+				+ "</td>" + "<td>" + sal + "</td>" + "<td>" + dept + "</td>";
+		elem.innerHTML = inner;
+		var tbody = document.getElementById("t1");
+		tbody.append(elem);
+	}
+</script>
+</head>
+<body onload="displayTable()">
+	<h1>Storage Demo</h1>
+	<hr />
+	<table cellpadding="10" bgcolor="#wheat" style="margin: 0 auto;">
+		<tr>
+			<td>name</td>
+			<td><input type="text" id="txtname" /></td>
+		</tr>
+		<tr>
+			<td>salary</td>
+			<td><input type="text" id="txtsal" /></td>
+		</tr>
+		<tr>
+			<td>dept</td>
+			<td><select id="txtdept">
+					<option value="hr">hr</option>
+					<option value="pr">pr</option>
+					<option value="qa">qa</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="add" onclick="saveData()" />
+			<td><input type="button" value="display all"
+				onclick="displayTable()" />
+		</tr>
+		<tr>
+			<td id="err1"></td>
+		</tr>
+
+	</table>
+	<hr size="2" style="background-color: red; height: 2px;" />
+	<div id="div1">
+		<table cellpadding="20" cellspacing="0" bgcolor="grey"
+			style="margin: 0 auto;">
+			<tr bgcolor="aqua">
+				<td>ID</td>
+				<td>Name</td>
+				<td>Salary</td>
+				<td>Dept</td>
+			</tr>
+			<tbody id="t1">
+
+
+			</tbody>
+		</table>
+	</div>
+
+	<table>
+
+	</table>
+</body>
+</html>

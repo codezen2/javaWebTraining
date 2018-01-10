@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function create() {
+		var str = document.getElementById("txt1").value;
+		document.cookie = "uname=" + str;
+		alert("cookie is created");
+	}
+	function view() {
+		alert(document.cookie);
+	}
+</script>
+</head>
+<body>
+	<h1>Cookie Demo</h1>
+	<hr />
+	<div allign="center">
+		Enter Name <input id="txt1" type="text" /> <input type="button"
+			value="create cookie" onclick="create()" /> <input type="button"
+			value="view cookie" onclick="view()" />
+	</div>
+</body>
+</html>

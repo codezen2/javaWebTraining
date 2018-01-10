@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function display() {
+		var res = "";
+		var data = null;
+		console.log(id, localStorage.getItem(id));
+		var idval= document.getElementById("txteid").value;
+		var id = "Employee:" +idval;
+
+		if (!isNaN(idval) &&localStorage.length > 0 && localStorage.getItem(id)) {
+			data = JSON.parse(localStorage.getItem(id));
+			console.log(data);
+			document.getElementById("tname").innerHTML = data.ename;
+			document.getElementById("tsal").innerHTML = data.esal;
+			document.getElementById("tdept").innerHTML = data.edept;
+		} else {
+			document.getElementById("tname").innerHTML = "-";
+			document.getElementById("tsal").innerHTML = "-";
+			document.getElementById("tdept").innerHTML = "-";
+		}
+
+	}
+</script>
+</head>
+<body>
+	<h1>View from storage</h1>
+	<hr />
+	<div align="center">
+		Enter EID<input type="text" id="txteid" /> <input type="button"
+			value="search" onclick="display()" />
+		<table cellpadding="10" bgcolor="cornsilk">
+			<tr>
+				<td>Name</td>
+				<td id="tname"></td>
+			</tr>
+			<tr>
+				<td>Salary</td>
+				<td id="tsal"></td>
+			</tr>
+			<tr>
+				<td>Dept</td>
+				<td id="tdept"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

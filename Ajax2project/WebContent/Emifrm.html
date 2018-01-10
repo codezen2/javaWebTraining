@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+   function calcEmi(){
+		var amt = document.getElementById("txtamt").value;
+		var year = document.getElementById("txtyear").value;
+		var ajax = new XMLHttpRequest();
+		var data=null;
+		var url = "EmiServer.jsp";
+		ajax.open('POST', url, true);
+		ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		ajax.send("tamt=" + amt+"&tyear="+year);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState==4 && ajax.status==200 )  {
+				data=JSON.parse(ajax.responseText);
+				console.log(data);
+				document.getElementById("t1").innerHTML=data.ci;
+				document.getElementById("t2").innerHTML=data.emi;
+			}
+		}
+   }
+
+</script>
+</head>
+<body>
+	<h1>Xchanging Portal</h1>
+
+
+	<hr />
+	<h2>Calculate EMI</h2>
+	<form action="emi">
+		<table cellpadding="10" bgcolor="#e3e3e3">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" id="txtname" name="txtname" /></td>
+			</tr>
+			<tr>
+				<td>Loan Amount</td>
+				<td><input type="text" id="txtamt" name="txtamt" /></td>
+			</tr>
+			<tr>
+				<td>years</td>
+				<td><select id="txtyear" name="txtyear">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="25">25</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>ci</td>
+				<td id="t1"></td>
+			</tr>
+			<tr>
+				<td>emi</td>
+				<td id="t2"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button"
+					value="calc EMI" onclick="calcEmi();" /></td>
+			</tr>
+		</table>
+
+	</form>
+	<hr />
+	<a href="home.jsp">home</a>
+</body>
+</html>
