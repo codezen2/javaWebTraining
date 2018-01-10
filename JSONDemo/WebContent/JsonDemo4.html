@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style type="text/css">
+table {
+	border-collapse: collapse;
+	background-color: #cdfff8;
+	margin: 0 auto;
+}
+
+tr, td {
+	padding: 10px;
+}
+</style>
+<title>Insert title here</title>
+<script>
+	var jdata = {
+		"employees" : [ {
+			"eid" : 1001,
+			"ename" : "ram",
+			"sal" : 8000
+		}, {
+			"eid" : 1002,
+			"ename" : "tom",
+			"sal" : 7000
+		}, {
+			"eid" : 1003,
+			"ename" : "sam",
+			"sal" : 15000
+		} ]
+	};
+
+	function viewData() {
+		var res = "<table>";
+		var d = jdata.employees;
+		for (var i = 0; i < d.length; ++i) {
+			res += "<tr><td>" + d[i].eid + "</td><td>" + d[i].ename
+					+ "</td><td>" + d[i].sal + "</td></tr>";
+		}
+		res += "</table>";
+		document.getElementById("div1").innerHTML = res;
+	}
+
+	function clearData() {
+		document.getElementById("div1").innerHTML = "";
+	}
+</script>
+
+</head>
+<body>
+	<h1>JsonDemo 4</h1>
+	<hr />
+	<div id="div1"
+		style="width: 300px; height: 200px; border: 1px solid red;"></div>
+	<input type="button" value="view data" onclick="viewData()" />
+	<input type="button" value="clear data" onclick="clearData()" />
+</body>
+</html>

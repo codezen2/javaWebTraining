@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function checkEligible() {
+		var age = document.getElementById("txtage").value;
+		var qual = document.getElementById("txtqual").value;
+		var ajax = new XMLHttpRequest();
+		var url = "EligibleResult.jsp?vage=" + age + "&vqual=" + qual;
+		//true for ajax call false-> sync call
+		//http://10.151.60.215.8082/JsonAjax/EligibleFrm.html
+		ajax.open('GET', url, true);
+		ajax.send();
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState== 4) {
+				 document.getElementById("span1").innerHTML=ajax.responseText;
+			}
+		}
+
+	}
+</script>
+
+</head>
+<body bgcolor="cyan">
+
+	<h1>Sapient Portal</h1>
+
+	<hr />
+	<h2>Are u Eligible to Work</h2>
+	<form>
+		<table cellpadding="10" bgcolor="#e3e3e3">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" id="txtname" name="txtname" /></td>
+			</tr>
+			<tr>
+				<td>Age</td>
+				<td><input type="text" id="txtage" name="txtage" /></td>
+			</tr>
+			<tr>
+				<td>Qualification</td>
+				<td><select id="txtqual" name="txtqual">
+						<option value="">--select qual--</option>
+						<option value="bca">bca</option>
+						<option value="mca">mca</option>
+						<option value="btech">btech</option>
+						<option value="be">be</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Result</td>
+				<td><span id="span1"></span></td>
+			</tr>
+			<tr>
+				<td><input type="button" onclick="checkEligible();"
+					value="check" /></td>
+			</tr>
+		</table>
+
+	</form>
+	<hr />
+
+</body>
+</html>
+
+
+
+
+

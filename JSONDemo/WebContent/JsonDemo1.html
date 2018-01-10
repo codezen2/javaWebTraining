@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+   function viewData(){
+	   var json={eid:1001,ename:'ram',sal:15000.0};
+	   document.getElementById("t1").innerHTML=json.eid;
+	   document.getElementById("t2").innerHTML=json.ename;
+	   document.getElementById("t3").innerHTML=json.sal;
+   }
+
+   function clearData(){
+	   document.getElementById("t1").innerHTML="";
+	   document.getElementById("t2").innerHTML="";
+	   document.getElementById("t3").innerHTML="";
+   }
+</script>
+</head>
+<body>
+	<h1 align="center">Json Demo 1</h1>
+	<hr />
+	<table cellpadding="10" bgcolor="#e3e3e3" style="margin: 0 auto">
+		<tr>
+			<td>Eid</td>
+			<td id="t1" style="width:50px"></td>
+		</tr>
+		<tr>
+			<td>ename</td>
+			<td id="t2"></td>
+		</tr>
+		<tr>
+			<td>salary</td>
+			<td id="t3"></td>
+		</tr>
+		<tr>
+		<td><input type="button" value="view data" onclick="viewData()"/></td>
+		<td><input type="button" value="clear data" onclick="clearData()"/></td>
+	</table>
+\	
+</body>
+</html>

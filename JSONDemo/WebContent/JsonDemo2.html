@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	var jdata = {
+		1001 : {
+			"eid" : 1001,
+			"ename" : 'tom',
+			"sal" : 9000
+		},
+		1002 : {
+			"eid" : 1002,
+			"ename" : "sam",
+			"sal" : 12000
+		},
+		1003 : {
+			"eid" : 1003,
+			"ename" : "ram",
+			"sal" : 15000
+		}
+	}
+
+	function viewData() {
+		var key = document.getElementById("txtname").value;
+		var d = jdata.employees;
+		var jobj = jdata[key];
+		if (jobj != undefined) {
+			document.getElementById("t1").innerHTML = jobj.eid;
+			document.getElementById("t2").innerHTML = jobj.ename;
+			document.getElementById("t3").innerHTML = jobj.sal;
+		} else {
+			document.getElementById("t1").innerHTML = "-";
+			document.getElementById("t2").innerHTML = "-";
+			document.getElementById("t3").innerHTML = "-";
+		}
+
+	}
+
+	function clearData() {
+		document.getElementById("t1").innerHTML = "";
+		document.getElementById("t2").innerHTML = "";
+		document.getElementById("t3").innerHTML = "";
+	}
+</script>
+</head>
+<body>
+	<h1 align="center">Json Demo2</h1>
+	<hr />
+	<div align="center">
+		search <input type="text" id="txtname" />
+		<table cellpadding="10" bgcolor="#e3e3e3">
+			<tr>
+				<td>Eid</td>
+				<td id="t1" style="width: 50px"></td>
+			</tr>
+			<tr>
+				<td>ename</td>
+				<td id="t2"></td>
+			</tr>
+			<tr>
+				<td>salary</td>
+				<td id="t3"></td>
+			</tr>
+		</table>
+		<input type="button" value="view data" onclick="viewData()" /> <input
+			type="button" value="clear data" onclick="clearData()" />
+	</div>
+</body>
+</html>

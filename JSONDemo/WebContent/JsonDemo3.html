@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+   function convertStrToJson(){
+	   var jstr = '{"eid":1001,"ename":"ram","sal":9000}';
+	   var jobj = JSON.parse(jstr);// prased as json object
+	   alert(jobj.eid + " "+ jobj.ename +" "+ jobj.sal);
+	   
+   }
+   function convertJsonToStr(){
+	   var jobj = {"eid":1001,"ename":"ram","sal":9000};
+	   var jstr = JSON.stringify(jobj);// prased as string object
+	   alert(jstr);
+	   
+   }
+   
+</script>
+</head>
+<body>
+<h1>JsonDemo3</h1>
+<hr/>
+<input type="button" value="strToJson" onclick="convertStrToJson()"/>
+<input type="button" value="JsonTostr" onclick="convertJsonToStr()"/>
+</body>
+
+
+</html>
