@@ -14,7 +14,7 @@
 		ajax.open('GET', url, true);
 		ajax.send();
 		ajax.onreadystatechange = function() {
-			if (ajax.readyState== 4) {
+			if (ajax.readyState==4 && ajax.status==200 )  {
 				 document.getElementById("span1").innerHTML=ajax.responseText;
 			}
 		}
