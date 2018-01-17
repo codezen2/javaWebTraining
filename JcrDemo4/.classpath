@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/com.springsource.org.objectweb.asm-1.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/jackrabbit-ocm-2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/jackrabbit-standalone-2.6.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/slf4j-log4j12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jbidha/Desktop/jars/jcr/commons-lang-2.6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
