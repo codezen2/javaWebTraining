@@ -60,10 +60,8 @@ public class SaveContent {
 	        	ocm.insert(film);
 	        	
 	        	ocm.save();
-
 	        	System.out.println("published");
-	        	
-	        	
+	           	
 	        	
 	        } finally { 
 	            session.logout(); 

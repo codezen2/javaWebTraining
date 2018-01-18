@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>EmpWebApp</display-name>
+	<welcome-file-list>
+		<welcome-file>LoginFrm.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>EmpViewController</servlet-name>
+		<servlet-class>com.sapient.web.EmpViewController</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EmpViewController</servlet-name>
+		<url-pattern>/viewall</url-pattern>
+		<url-pattern>/update</url-pattern>
+		<url-pattern>/viewbydept</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddEmpController</servlet-name>
+		<servlet-class>com.sapient.web.AddEmpController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddEmpController</servlet-name>
+		<url-pattern>/add</url-pattern>
+		<url-pattern>/viewimg</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>LoginController</display-name>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>com.sapient.web.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/login</url-pattern>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+</web-app>
